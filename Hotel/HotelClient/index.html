@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+        <div id="box">
+            <div class="sign">
+                <h1 onclick="signInPage()" id="signInButton">Sign In</h1>
+                <h1 onclick="signUpPage()" id="signUpButton">Sign Up</h1>
+            </div>
+            <div id="signUp">
+
+                <form action="" onsubmit="submitForm(event)">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    <input type="text" id="aadhar" name="aadhar" placeholder="Aadhar number" required>
+                    
+                    <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                    
+                    <input type="email" id="email" name="email" placeholder="Email ID" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="text" name="address" id="address" placeholder="address">
+                    <select id="foodtype" name="foodtype" placeholder="food type" title="foodtype" required>
+                        <option value="veg">Veg</option>
+                        <option value="nonveg">Nonveg</option>
+                    </select>
+
+                    <select id="gender" name="gender" placeholder="Gender" title="Gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <input type="number" id="walletBalance" name="walletBalance" placeholder="Deposit Amount" min="0" required>
+                    <input type="file" id="profilePhoto" placeholder="Profile Photo" required>
+                    <button type="submit">Submit Registration</button>
+                </form>
+            </div>
+            <div id="signIn">
+                <form action="" onsubmit="signInSubmit(event)">
+                    <input type="email" id="email1" placeholder="Email" required>
+                    <input type="password" id="password2" placeholder="Password" required>
+                    <button type="submit" value="Submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="menu">
+            <ol>
+                <li onclick="home()">Home</li>
+                <li onclick="CustomerDetails()">Customer Profile</li>
+                <li onclick="ShowRoomDetails()">Room Details</li>
+                <li onclick="RechargeWallet()">Recharge</li>
+                <li onclick="BookRoom()">Book Room</li>
+                <li onclick="Wishlists()">Wishlists</li>
+                <li onclick="OrderHistory()">Booking History</li>
+                <li onclick="LogOut()">Log Out</li>
+            </ol>
+        </div>
+
+        <div id="homePage">
+            <div id="homepage-view">
+                <!-- <h1 id="welcome"></h1> -->
+                <div id="left-home-div">
+                    <h1>Sync Hotel</h1>
+                    <div id="left-content-div">
+                        <hr>
+                        <h3>Better Rooms at the Right Price</h3>
+                        <p> provides lodging, meals, and other services to guests, travelers, and tourists</p>
+                    </div>
+                </div>
+                <div id="right-home-div">
+                    <img src="./Images/Screenshot 2025-02-28 103235.png" alt="Cart">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="UserProfilePage">
+            <div id="user-profile-card">
+            </div>
+        </div>
+
+        <div id="ProductProfilePage">
+            <div id="productpage">
+                <div id="product-page-container">
+                    <table id="product-table">
+                    </table>
+                </div>
+                <div>
+                    <button id="new-product-btn" onclick="NewProductPage()">Add New Room</button><br>
+                    <div id="addNewProduct">
+                        <form onsubmit="addProduct(event)">
+                            <input placeholder="Enter Room Type" id="roomType" required>
+                            <input placeholder="Enter Number of beds" id="numberOfBeds" min="0" required>
+                            <input placeholder="Enter  Price per day" id="pricePerDay" min="0" required>
+                            <input type="file" id="add-photo" placeholder="Room Photo" required>
+                            <button type="submit" value="submit">Add Product</button>
+                        </form>
+                    </div>
+                    <div id="editProduct">
+                        <form onsubmit="editProduct(event)">
+                            <input placeholder="Enter  Room Type" id="editRoomType" required>
+                            <input placeholder="Enter Number of beds" id="editNumberofBeds" min="0" required>
+                            <input placeholder="Enter Enter  Price per day" id="editpriceperday" min="0" required>
+                            <input type="file" id="edit-photo" placeholder="Room Photo" required>
+                            <button type="submit" value="submit">Edit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="walletRechargePage">
+            <div id="balance-grid">
+                <div id="balance">
+                    <h1 id="currentBalance"></h1>
+                </div>
+                <span id="amountInput"><input type="number" placeholder="Enter the Amount " id="amount" min="0"
+                        required>
+                    <button onclick="deposit()" id="deposit">Deposit</button></span>
+            </div>
+        </div>
+
+        <div id="TakeOrderPage">
+
+            <div id="inputdate-container">
+             
+            </div>
+            <div id="product-container"></div>
+        </div>
+
+        <div id="CustomerCartItemsPage">
+            <div id="empty-cart">
+            </div>
+            <div id="modifydate"></div>
+            <div id="carts-price">
+                <div id="cart-item-div"></div>
+                <div id="price-details">
+                    <h1 id="showTotalPrice"></h1>
+                    <button id="new-order-btn" onclick="PurchaseAllItems()">Book all rooms</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="OrderHistoryPage">
+            <div id="booking-div">
+                <div id="booking-page-container">
+                    <table id="booking-table">
+                    </table>
+                </div>
+                <div id="bill-div">
+                    <center>
+                        <div id="bill-content">
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    
+    <script type="module"  src="dist/script.js"></script>
+</body>
+
+</html>
+</body>
+</html>
